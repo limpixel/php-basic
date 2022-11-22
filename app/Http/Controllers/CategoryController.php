@@ -57,7 +57,9 @@ class CategoryController extends Controller
         if ($validator->fails()) {
             return redirect()->route('categories.create')->withErrors($validator)->withInput();
         } else {
-            // 1PM , Insyaallah : )
+            Category::create($request->all());
+            return redirect()->route('categories.index')->with('succes', "The Category <strong>{$request->name}</strong> created successfully");
+
         }
         
 

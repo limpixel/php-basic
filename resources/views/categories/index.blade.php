@@ -4,6 +4,13 @@
     <div class="container mt md-5 mt-3">
         <div class="row">
             <div class="col-md-12 col-12">
+            @if (Session::has('succes'))
+                <div class="alert alert-success alert-dismissible fade show">
+                    <strong>Success!</strong> {!! Session::get('success') !!}
+                    <button class="btn-close" type="button" data-bs-dismiss="alert"></button>
+                </div>
+            @endif
+
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
@@ -20,8 +27,10 @@
                             <thead><tr><th>No</th><th>Name</th><th>Slug</th><th>Action</th></tr></thead>
                             <tbody>
                                 @foreach ($categories as $item)
-                                    <tr>
-                                        <td>{{ $loop->interation }}</td><td>{{ $item->name }}</td><td>{{ $item->slug }}</td>
+                                    <tr >
+                                        <td> {{ $loop->iteration }} </td>
+                                        <td> {{ $item->name }} </td>
+                                        <td> {{ $item->slug }} </td>
                                         <td>
                                             <a href="{{ route('categories.show', $item->id) }}" class="btn btn-sm btn-info">
                                                 <i class="fas fa-search pe-1"></i> Show
@@ -31,7 +40,7 @@
                                                 <i class="fas fa-search pe-1"></i> Show
                                             </a>
 
-                                            <form action="" method="post">
+                                            <form action="{{route('categories.destroy', $item->id)}}" method="post" class="d-inline" >
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">
@@ -39,7 +48,6 @@
                                                 </button>
                                             </form>
                                         </td>
-
                                         
                                     </tr>
                                 @endforeach
