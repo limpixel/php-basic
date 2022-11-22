@@ -9,7 +9,7 @@
                         <div class="row">
                             <div class="col-md-6 col-12">{{ $title }}</div>
                             <div class="col-md-6 col-12 text-end">
-                                <a href="" class="btn btn-sm btn-dark">
+                                <a href=" {{route('categories.create')}} " class="btn btn-sm btn-dark">
                                     <i class="fas fa-plus-circle pe-1"></i> Create New Category
                                 </a>
                             </div>
@@ -26,7 +26,21 @@
                                             <a href="{{ route('categories.show', $item->id) }}" class="btn btn-sm btn-info">
                                                 <i class="fas fa-search pe-1"></i> Show
                                             </a>
+
+                                            <a href="{{ route('categories.edit', $item->id) }}" class="btn btn-sm btn-success">
+                                                <i class="fas fa-search pe-1"></i> Show
+                                            </a>
+
+                                            <form action="" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-trash-alt pe-1"></i> Destroy
+                                                </button>
+                                            </form>
                                         </td>
+
+                                        
                                     </tr>
                                 @endforeach
                             </tbody>
