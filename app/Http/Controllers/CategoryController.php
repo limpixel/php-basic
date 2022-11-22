@@ -43,7 +43,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $rule = [
-            'nama' => 'required',
+            'name' => 'required',
             'slug' => 'required',
         ];  
 
@@ -54,10 +54,10 @@ class CategoryController extends Controller
 
         $validator = Validator::make($request->all(), $rule, $message);
 
-        if ($validator->fails) {
-            # code...
+        if ($validator->fails()) {
+            return redirect()->route('categories.create')->withErrors($validator)->withInput();
         } else {
-            # code...
+            // 1PM , Insyaallah : )
         }
         
 
