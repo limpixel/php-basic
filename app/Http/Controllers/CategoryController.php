@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator ;
 
 class CategoryController extends Controller
 {
@@ -41,7 +42,26 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rule = [
+            'nama' => 'required',
+            'slug' => 'required',
+        ];  
+
+        $message =[
+            'nama.required' => 'The Field <strong>name</strong> is requierd!',
+            'slug.required' => 'The Field <strong>slug</strong> is requierd!',
+        ];  
+
+        $validator = Validator::make($request->all(), $rule, $message);
+
+        if ($validator->fails) {
+            # code...
+        } else {
+            # code...
+        }
+        
+
+
     }
 
     /**
