@@ -4,6 +4,8 @@ use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 /*------------------------------------------*/ 
 
@@ -24,3 +26,7 @@ Route::get('/product/{id?}', function ($id = null) {
 // Route::get('/user/all', function () {
 //     return view('user');
 // })->name('frontend_user');
+
+
+Route::resource('categories', CategoryController::class);
+Route::resource('products', ProductController::class);
