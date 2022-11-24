@@ -50,5 +50,16 @@
 @endsection
 
 @section('js')
+    <script>
+        $(function(){
+            $('input[name="name"]').on('keyup', function(){
+                let Text = $(this).val();
 
+                Text = Text.toLowerCase();
+                Text = Text.replace(/[^a-zA-Z0-9]+/g, '-');
+
+                $('input[name="slug"]').val(Text);
+            });
+        });
+    </script>
 @endsection
