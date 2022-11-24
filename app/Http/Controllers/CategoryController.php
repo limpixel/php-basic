@@ -58,7 +58,7 @@ class CategoryController extends Controller
             return redirect()->route('categories.create')->withErrors($validator)->withInput();
         } else {
             Category::create($request->all());
-            return redirect()->route('categories.index')->with('succes', "The Category <strong>{$request->name}</strong> created successfully");
+            return redirect()->route('categories.index')->with('success', "The Category <strong>{$request->name}</strong> created successfully");
 
         }
         
@@ -116,7 +116,7 @@ class CategoryController extends Controller
             return redirect()->route('categories.create', $category->id)->withErrors($validator)->withInput();
         } else {
             $category->update($request->all());
-            return redirect()->route('categories.index')->with('succes', "The Category <strong>{$category->id}</strong> created successfully");
+            return redirect()->route('categories.index')->with('success', "The Category <strong>{$category->id}</strong> Updated successfully");
 
         }
     }
@@ -129,6 +129,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('categories.index')->with('success', "The Category #<strong>{$category->id}</strong> deleted successfully");
+
     }
 }

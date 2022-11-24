@@ -4,7 +4,7 @@
     <div class="container mt md-5 mt-3">
         <div class="row">
             <div class="col-md-12 col-12">
-            @if (Session::has('succes'))
+            @if (Session::has('success'))
                 <div class="alert alert-success alert-dismissible fade show">
                     <strong>Success!</strong> {!! Session::get('success') !!}
                     <button class="btn-close" type="button" data-bs-dismiss="alert"></button>
