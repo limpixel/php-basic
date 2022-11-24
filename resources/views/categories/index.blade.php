@@ -37,7 +37,7 @@
                                             </a>
 
                                             <a href="{{ route('categories.edit', $item->id) }}" class="btn btn-sm btn-success">
-                                                <i class="fas fa-search pe-1"></i> Show
+                                                <i class="fa-solid fa-pencil"></i> Edit
                                             </a>
 
                                             <form action="{{route('categories.destroy', $item->id)}}" method="post" class="d-inline" >
@@ -65,5 +65,5 @@
 @endsection
 
 @section('js')
-
+    <script src="https://kit.fontawesome.com/0eb42152c5.js" crossorigin="anonymous"></script>
 @endsection

@@ -9,7 +9,7 @@ use App\Http\Controllers\ProductController;
 
 /*------------------------------------------*/ 
 
-Route::get('/', [CategoryController::class, 'index'])->name('frontend_category');
+
 
 
 
@@ -27,6 +27,6 @@ Route::get('/product/{id?}', function ($id = null) {
 //     return view('user');
 // })->name('frontend_user');
 
-
+Route::get('/', [CategoryController::class, 'index']);
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);

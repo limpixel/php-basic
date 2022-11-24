@@ -74,7 +74,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $title = 'Category Show';
+        $title = 'Category Show #' . $category->id;
         return view('categories.show', compact('category', 'title'));
         
     }
@@ -87,7 +87,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        $title = 'Category Edit';
+        $title = 'Category Edit #' . $category->id;
         return view('categories.edit', compact('category', 'title'));
     }
 
@@ -100,7 +100,25 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $rule = [
+            'name' => 'required',
+            'slug' => 'required',
+        ];  
+
+        $message =[
+            'nama.required' => 'The Field <strong>name</strong> is requierd!',
+            'slug.required' => 'The Field <strong>slug</strong> is requierd!',
+        ];  
+
+        $validator = Validator::make($request->all(), $rule, $message);
+
+        if ($validator->fails()) {
+            return redirect()->route('categories.create', $category->id)->withErrors($validator)->withInput();
+        } else {
+            $category->update($request->all());
+            return redirect()->route('categories.index')->with('succes', "The Category <strong>{$category->id}</strong> created successfully");
+
+        }
     }
 
     /**

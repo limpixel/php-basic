@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Clonning Project
+## Tutor Clonning Project
 
 > Kalau Mau Clonning project harusdi "npm install" terlebih dahulu ya kawan-kawan.
 
