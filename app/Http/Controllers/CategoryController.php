@@ -76,6 +76,7 @@ class CategoryController extends Controller
     {
         $title = 'Category Show';
         return view('categories.show', compact('category', 'title'));
+        
     }
 
     /**
