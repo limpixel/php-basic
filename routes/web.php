@@ -9,9 +9,9 @@ use App\Http\Controllers\ProductController;
 
 /*------------------------------------------*/ 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CategoryController::class, 'index'])->name('frontend_category');
+
+
 
 
 Route::get('/user/all', [UserController::class, 'manage'])->name('frontend_user');

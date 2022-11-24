@@ -74,7 +74,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $title = 'Category Show';
+        return view('categories.show', compact('category', 'title'));
     }
 
     /**
@@ -85,7 +86,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        $title = 'Category Edit';
+        return view('categories.edit', compact('category', 'title'));
     }
 
     /**
